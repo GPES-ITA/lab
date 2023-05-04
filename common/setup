@@ -47,7 +47,7 @@ httpd $1 $CONFIG_ENV
 
 if [ "$1" == "gpes" ]; then
     
-    # postgres $1 $CONFIG_ENV
+    postgres $1 $CONFIG_ENV
 
     # mongodb $1 $CONFIG_ENV
 
