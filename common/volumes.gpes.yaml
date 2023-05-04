@@ -12,10 +12,6 @@ volumes:
     name: mongodata
     driver: local
 
-  nextclouddata:
-    name: nextclouddata
-    driver: local
-
   postgresdata:
     name: postgresdata
     driver: local
