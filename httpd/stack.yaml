@@ -1,0 +1,32 @@
+services:
+
+  httpd:
+    container_name: httpd
+    image: httpd
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '9000:9000'
+    networks:
+      netlab01:
+        ipv4_address: ${HTTPD_HOST}
+    extra_hosts:
+      - host.docker.internal:172.16.0.1
+    volumes:
+      - $PWD/panel/static:/usr/local/apache2/htdocs:ro
+      - $PWD/panel/config:/usr/local/apache2/conf:ro
+      - certificates:/usr/local/apache2/certificates:ro
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      LAB_DOMAIN: ${LAB_DOMAIN}
+      CI_LAB_DOMAIN: ${CI_LAB_DOMAIN}
+      CM_LAB_DOMAIN: ${CM_LAB_DOMAIN}
+      IA_LAB_DOMAIN: ${IA_LAB_DOMAIN}
+      ST_LAB_DOMAIN: ${ST_LAB_DOMAIN}
+
+networks:
+  netlab01:
+    external: true

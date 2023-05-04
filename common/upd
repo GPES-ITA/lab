@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+
+git checkout ../registry/config/config.yml
+
+git pull
+
+git submodule update --init --recursive

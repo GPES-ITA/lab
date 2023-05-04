@@ -1,0 +1,26 @@
+services:
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    ports:
+      - '8086:9000'
+    networks:
+      netlab01:
+        ipv4_address: ${PORTAINER_HOST}
+    volumes:
+      - portainerdata:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+volumes:
+  portainerdata:
+    name: portainerdata
+    external: true
+
+networks:
+  netlab01:
+    external: true

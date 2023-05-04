@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+function create_user_noexpire() {
+
+    sudo adduser --disabled-password --gecos "" --ingroup gpes $1
+    sudo usermod --password $(echo s3cr37 | openssl passwd -1 -stdin) $1
+
+}
+
+function create_user() {
+
+    sudo adduser --disabled-password --gecos "" --ingroup gpes $1
+    sudo usermod --password $(echo s3cr37 | openssl passwd -1 -stdin) $1
+    sudo passwd --expire $1
+
+}
+
+function create_administrator() {
+
+    create_operator $1
+
+    echo '$1 ALL=(ALL:ALL) ALL' > /etc/sudoers.d/$1
+
+}
+function create_operator() {
+
+    create_user $1
+
+    sudo usermod -a -G docker $1
+    sudo usermod -a -G users $1
+
+}
+
+function create_nologin_operator() {
+
+    create_user $1
+    
+    usermod $1 -s /sbin/nologin
+
+}
+
+# create_user gpes01
+# usermod -aG sudo gpes01
+
+# Professores
+# create_user cunha
+# create_user vieira
+# create_user lineu
+
+# Administradores
+# create_admnistrator breslei
+# create_admnistrator matheus
+
+# Alunos
+# create_nologin_operator joao
+# create_nologin_operator maria

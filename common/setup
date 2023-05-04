@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source ./config
+
+source ./functions
+
+if [[ $# -ne 1 && $# -ne 2 ]]; then
+
+    echo "Informe { gpes } [ config ]"
+
+    exit 1
+
+else
+
+    domain $1
+
+fi
+
+CONFIG_ENV="N"
+
+if [ $# -eq 2 ]; then
+    if [ "$2" == "config" ]; then
+        echo "$(tput setaf 1)Configurando ambientes$(tput sgr0)"
+        read -p "Confirme [S/N]: " -n1 CONFIG_OPT
+        CONFIG_OPT=${CONFIG_OPT:-N}
+        if [[ $CONFIG_OPT =~ ^[Ss]$ ]]; then
+            echo '\nTodos os ambientes serão configurados'
+            CONFIG_ENV="Y"
+        fi
+    else
+
+        echo "Argumento $2 incorreto. Use [ config ]"
+
+        exit 2
+        
+    fi
+
+else
+
+    echo "$(tput setaf 1)Atualizando ambientes sem reconfigurar$(tput sgr0)"
+
+fi
+
+httpd $1 $CONFIG_ENV
+
+
+if [ "$1" == "gpes" ]; then
+    
+    # postgres $1 $CONFIG_ENV
+
+    # mongodb $1 $CONFIG_ENV
+
+    # mariadb $1 $CONFIG_ENV
+
+    # redis $1 $CONFIG_ENV
+
+    # memcached $1 $CONFIG_ENV
+
+    # etcd $1 $CONFIG_ENV
+
+    # rabbitmq $1 $CONFIG_ENV
+
+    # hasura $1 $CONFIG_ENV
+
+fi
+
+
+agent $1 $CONFIG_ENV
+
+prometheus $1 $CONFIG_ENV
+
+grafana $1 $CONFIG_ENV
+
+netdata $1 $CONFIG_ENV
+
+
+if [ "$1" == "dev" ] || [ "$1" == "tst" ]; then
+
+    # gitea $1 $CONFIG_ENV
+
+    # drone $1 $CONFIG_ENV
+
+    # semaphore $1 $CONFIG_ENV
+
+    # registry $1 $CONFIG_ENV
+
+    # locust $1 $CONFIG_ENV
+
+    # portainer $1 $CONFIG_ENV
+
+fi

@@ -1,0 +1,37 @@
+services:
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-uroot", "-p${SVC_PWD}", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+    ports:
+      - '3400:3306'
+    networks:
+      netlab01:
+        ipv4_address: ${MARIADB_HOST}
+    volumes:
+      - mariadata:/var/lib/mysql:rw
+      - $PWD/mariadb/config:/etc/mysql/conf.d:ro
+      - $PWD/mariadb/init:/docker-entrypoint-initdb.d:ro
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      MARIADB_ROOT_PASSWORD: ${SVC_PWD}
+      MARIADB_USER: maint
+      MARIADB_PASSWORD: ${SVC_PWD}
+
+volumes:
+  mariadata:
+    name: mariadbdata
+    external: true
+
+networks:
+  netlab01:
+    external: true
