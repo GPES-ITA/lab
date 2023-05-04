@@ -2,57 +2,169 @@ volumes:
 
   certificates:
     name: certificates
-    external: true
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/certificates/_data
+      o: bind
+
+  dronedata:
+    name: dronedata
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/dronedata/_data
+      o: bind
+
+  giteadata:
+    name: giteadata
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/giteadata/_data
+      o: bind
+
+  jupyterdata:
+    name: jupyterdata
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/jupyterdata/_data
+      o: bind
+
+  jupytershared:
+    name: jupytershared
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/jupytershared/_data
+      o: bind
 
   mariadata:
     name: mariadbdata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/mariadbdata/_data
+      o: bind
 
   mongodata:
     name: mongodata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/mongodata/_data
+      o: bind
 
   nextclouddata:
     name: nextclouddata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/nextclouddata/_data
+      o: bind
+
+  portainerdata:
+    name: portainerdata
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/portainerdata/_data
+      o: bind
 
   postgresdata:
     name: postgresdata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/postgresdata/_data
+      o: bind
   postgresdata01:
     name: postgresdata01
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/postgresdata01/_data
+      o: bind
   postgresdata02:
     name: postgresdata02
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/postgresdata02/_data
+      o: bind
   postgresdata03:
     name: postgresdata03
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/postgresdata03
+      o: bind
 
   rabbitmqdata:
     name: rabbitmqdata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/rabbitmqdata/_data
+      o: bind
   rabbitmqdata01:
     name: rabbitmqdata01
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/rabbitmqdata01/_data
+      o: bind
   rabbitmqdata02:
     name: rabbitmqdata02
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/rabbitmqdata02/_data
+      o: bind
 
   redisdata:
     name: redisdata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/redisdata/_data
+      o: bind
   redisdata01:
     name: redisdata01
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/redisdata01/_data
+      o: bind
   redisdata02:
     name: redisdata02
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/redisdata02/_data
+      o: bind
 
   redminedata:
     name: redminedata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/redminedata/_data
+      o: bind
+
+  registrydata:
+    name: registrydata
+    driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/registrydata/_data
+      o: bind
   
   labelstudiodata:
     name: labelstudiodata
     driver: local
+    driver_opts:
+      type: none
+      device: /volumes/data01/labelstudiodata/_data
+      o: bind
