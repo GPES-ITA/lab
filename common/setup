@@ -75,18 +75,18 @@ grafana $1 $CONFIG_ENV
 netdata $1 $CONFIG_ENV
 
 
-if [ "$1" == "dev" ] || [ "$1" == "tst" ]; then
+# if [ "$1" == "dev" ] || [ "$1" == "tst" ]; then
 
-    # gitea $1 $CONFIG_ENV
+#     gitea $1 $CONFIG_ENV
 
-    # drone $1 $CONFIG_ENV
+#     drone $1 $CONFIG_ENV
 
-    # semaphore $1 $CONFIG_ENV
+#     semaphore $1 $CONFIG_ENV
 
-    # registry $1 $CONFIG_ENV
+#     registry $1 $CONFIG_ENV
 
-    # locust $1 $CONFIG_ENV
+#     locust $1 $CONFIG_ENV
 
-    # portainer $1 $CONFIG_ENV
+#     portainer $1 $CONFIG_ENV
 
-fi
+# fi
