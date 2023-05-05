@@ -53,7 +53,7 @@ if [ "$1" == "gpes" ]; then
 
     # mariadb $1 $CONFIG_ENV
 
-    # redis $1 $CONFIG_ENV
+    redis $1 $CONFIG_ENV
 
     # memcached $1 $CONFIG_ENV
 
