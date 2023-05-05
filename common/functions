@@ -6,7 +6,7 @@ function domain() {
     if [ "$1" == "gpes" ]; then
 
         # Servidor do lab
-        export LAB_DOMAIN=ia.labqs.ita.br
+        export LAB_DOMAIN=gpes.ita.br
         export CI_LAB_DOMAIN=ci.labqs.ita.br
         export CM_LAB_DOMAIN=cm.labqs.ita.br
         export IA_LAB_DOMAIN=ia.labqs.ita.br
