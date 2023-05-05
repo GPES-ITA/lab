@@ -21,6 +21,11 @@ services:
       - '--no-random-sleep-on-renew'
       - '--dry-run'
 
+volumes:
+  certificates:
+    name: certificates
+    external: true
+
 networks:
   netlab01:
     external: true

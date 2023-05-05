@@ -27,6 +27,11 @@ services:
       IA_LAB_DOMAIN: ${IA_LAB_DOMAIN}
       ST_LAB_DOMAIN: ${ST_LAB_DOMAIN}
 
+volumes:
+  certificates:
+    name: certificates
+    external: true
+
 networks:
   netlab01:
     external: true
