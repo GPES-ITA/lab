@@ -3,6 +3,8 @@ services:
   netdata:
     container_name: netdata
     image: netdata/netdata:latest
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE

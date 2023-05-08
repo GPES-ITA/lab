@@ -3,6 +3,8 @@ services:
   prometheus:
     container_name: prometheus
     image: bitnami/prometheus:latest
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     ports:
       - '9090:9090'

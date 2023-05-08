@@ -3,6 +3,8 @@ services:
   certbot:
     container_name: certbot
     image: certbot/certbot
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     ports:
       - '80:80'
       - '443:443'

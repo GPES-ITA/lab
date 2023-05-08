@@ -3,6 +3,8 @@ services:
   postgres:
     container_name: postgres
     image: postgres:14
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "sh -c 'pg_isready -U postgres -d postgres'"]
@@ -29,6 +31,8 @@ services:
   postgres01:
     container_name: postgres01
     image: postgres:14
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "sh -c 'pg_isready -U postgres -d postgres'"]
@@ -55,6 +59,8 @@ services:
   postgres02:
     container_name: postgres02
     image: postgres:14
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "sh -c 'pg_isready -U postgres -d postgres'"]

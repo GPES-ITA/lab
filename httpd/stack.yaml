@@ -3,6 +3,8 @@ services:
   httpd:
     container_name: httpd
     image: httpd
+    labels:
+      io.portainer.accesscontrol.teams: gpes
     restart: unless-stopped
     ports:
       - '80:80'
